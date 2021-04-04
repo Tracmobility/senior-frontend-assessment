@@ -1,0 +1,33 @@
+.b-modal-dialog {
+  z-index: 1041;
+  max-width: 43.75rem !important;
+}
+
+.b-modal-location {
+  padding: 0.5rem;
+
+   &__header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 1rem;
+     margin-top: -0.5rem;
+   }
+
+   &__header-info {
+     font-size: $fs--2;
+     
+     &__title {
+       font-weight: 500;
+     }
+
+     &__close {
+       cursor: pointer;
+     }
+   }
+
+}
+
+.leaflet-container {
+  height: 31.25rem;
+}
