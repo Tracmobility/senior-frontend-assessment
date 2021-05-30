@@ -1,6 +1,7 @@
 import Routes from './routes';
 import styles from './App.module.scss';
 import SideMenuComponent from './common/SideMenu/SideMenuComponent';
+import TopNavigationComponent from './common/TopNavigation/TopNavigation';
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
         <SideMenuComponent />
       </div>
       <div className={styles.topBarAndRoutesContainer}>
+        <TopNavigationComponent />
         <Routes />
       </div>
     </div>
