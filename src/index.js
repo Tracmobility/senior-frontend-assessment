@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import './index.scss';
 import App from './App';
 import initializeStore from './state/store';
+import './assets/fonts/poppins.css';
 
 const store = initializeStore();
 

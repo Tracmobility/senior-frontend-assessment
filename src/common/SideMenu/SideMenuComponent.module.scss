@@ -1,0 +1,91 @@
+.sideMenuContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
+  width: 100%;
+  background-color: #03989E;
+  color: #fefefe;
+  padding: 20px 14px;
+
+  div {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  h3 {
+    font-weight: 500;
+  }
+
+  .tracBrand {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 10px 0 20px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #42B2B6;
+
+    svg {
+      font-size: 40px;
+    }
+
+    h1 {
+      font-size: 22px;
+      padding-left: 10px;
+    }
+  }
+
+  .kpiSection {
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #42B2B6;
+    margin-bottom: 10px;
+
+    svg,
+    h3 {
+      font-size: 18px;
+    }
+
+    h3 {
+      padding-left: 10px;
+    }
+  }
+
+  .taskManagementSection,
+  .operationCenterSection {
+    width: 100%;
+    flex-flow: column nowrap;
+
+    h3 {
+      color: #A1D8DB;
+    }
+
+    a {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+    }
+  }
+
+  .taskManagementSection {
+    padding: 20px 0;
+    
+    h3 {
+      margin-bottom: 20px;
+    }
+    
+    a {
+      color: #fefefe;
+      text-decoration: none;
+      margin: 30px 0;
+      
+      p {
+        padding-left: 10px;
+      }
+
+      .taskCreationChevron {
+        margin-left: auto;
+      }
+    }
+  }
+}
