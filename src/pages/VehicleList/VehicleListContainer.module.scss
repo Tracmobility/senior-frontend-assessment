@@ -1,0 +1,35 @@
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .vehicleListContainer {
+    height: 90%;
+    width: 95%;
+    border: 1px solid #D4D4D4;
+    border-radius: 4px;
+
+    .vehicleListTitleOptionsBar {
+      display: flex;
+      flex-flow: row nowrap;
+      width: 100%;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-bottom: 1px solid #D4D4D4;
+
+      h2 {
+        font-size: 20px;
+        font-weight: 500;
+        color: #03989E;
+      }
+
+      svg {
+        font-size: 16px;
+        margin: 0 10px 0 auto;
+        color: #7F8C8D;
+      }
+    }
+  }
+}

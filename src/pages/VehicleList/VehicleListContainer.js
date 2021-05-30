@@ -3,6 +3,8 @@ import React, { useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import fetchVehiclesApiRequest from '../../api/vehiclesApi';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import styles from './VehicleListContainer.module.scss';
 
 const VehicleListContainer = ({ vehiclesStore, fetchVehiclesApiRequest }) => {
@@ -11,7 +13,14 @@ const VehicleListContainer = ({ vehiclesStore, fetchVehiclesApiRequest }) => {
   }, []);
 
   return (
-    <h1>VehicleListContainer</h1>
+    <main className={styles.vehicleListContainer}>
+      <div className={styles.vehicleListContainer}>
+        <div className={styles.vehicleListTitleOptionsBar}>
+          <h2>Vehicle List</h2>
+          <FontAwesomeIcon icon={faEllipsisV} />
+        </div>
+      </div>
+    </main>
   )
 };
 
