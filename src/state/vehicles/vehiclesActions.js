@@ -6,7 +6,7 @@ export const fetchVehiclesRequest = () => ({
   type: FETCH_VEHICLES_REQUEST,
 });
 
-export const fetchVehicleSuccess = vehicles => ({
+export const fetchVehiclesSuccess = vehicles => ({
   type: FETCH_VEHICLES_SUCCESS,
   payload: vehicles,
 });

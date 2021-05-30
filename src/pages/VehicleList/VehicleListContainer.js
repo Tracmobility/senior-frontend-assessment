@@ -1,26 +1,27 @@
+/* eslint-disable no-unused-vars */
 import React, { useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import fetchVehiclesApiRequest from '../../api/vehiclesApi';
-import SideMenuComponent from './components/SideMenu/SideMenuComponent';
+import styles from './VehicleListContainer.module.scss';
 
-const VehicleListPageContainer = ({ vehiclesStore, fetchVehiclesApiRequest }) => {
-  const { loading, vehicles } = vehiclesStore;
-
+const VehicleListContainer = ({ vehiclesStore, fetchVehiclesApiRequest }) => {
   useLayoutEffect(() => {
     fetchVehiclesApiRequest();
   }, []);
 
   return (
-    <SideMenuComponent loadingStatus={loading} />
+    <h1>VehicleListContainer</h1>
   )
 };
 
-VehicleListPageContainer.propTypes = {
+VehicleListContainer.propTypes = {
   fetchVehiclesApiRequest: PropTypes.func.isRequired,
   vehiclesStore: PropTypes.shape({
     loading: PropTypes.bool,
-    vehicles: PropTypes.arrayOf(PropTypes.object),
+    vehicles: PropTypes.shape({
+      content: PropTypes.arrayOf(PropTypes.object),
+    }).isRequired,
   }).isRequired,
 };
 
@@ -32,4 +33,4 @@ const mapDispatchToProps = dispatch => ({
   fetchVehiclesApiRequest: () => dispatch(fetchVehiclesApiRequest()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(VehicleListPageContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(VehicleListContainer);

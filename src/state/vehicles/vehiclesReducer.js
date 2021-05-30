@@ -5,7 +5,7 @@ import {
 
 const initialState = {
   loading: false,
-  vehicles: [],
+  vehicles: {},
   singleVehicle: [],
   error: '',
 };
@@ -27,7 +27,7 @@ const vehiclesReducer = (state = initialState, action) => {
     case FETCH_VEHICLES_ERROR: return {
       ...state,
       loading: false,
-      vehicles: [],
+      vehicles: {},
       error: action.payload
     };
 

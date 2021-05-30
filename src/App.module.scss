@@ -1,0 +1,26 @@
+.appContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #fefefe;
+  z-index: 1;
+
+  .sideMenuContainer,
+  .topBarAndRoutesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  };
+
+  .sideMenuContainer {
+    width: 20%;
+  }
+
+  .topBarAndRoutesContainer {
+    width: 80%;
+  }
+}
