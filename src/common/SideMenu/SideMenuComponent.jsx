@@ -1,54 +1,83 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { NavDropdown } from 'react-bootstrap';
 import {
   faLaptop, faProjectDiagram, faMap, faListAlt, faPlusSquare, faChevronRight, faCogs,
-  faQrcode
+  faQrcode, faChevronDown
 } from '@fortawesome/free-solid-svg-icons';
 import styles from './SideMenuComponent.module.scss';
 
-const SideMenuComponent = () => (
-  <nav className={styles.sideMenuContainer}>
-    <div className={styles.tracBrand}>
-      <FontAwesomeIcon icon={faLaptop}/>
-      <h1>TRACMOBILITY</h1>
-    </div>
-    <div className={styles.kpiSection}>
-      <FontAwesomeIcon icon={faProjectDiagram}/>
-      <h3>KPI Dashboard</h3>
-    </div>
-    <div className={styles.taskManagementSection}>
-      <h3>Task Management</h3>
-      <a href="#">
-        <FontAwesomeIcon icon={faMap}/>
-        <p>Task Map</p>
-      </a>
-      <a href="#">
-        <FontAwesomeIcon icon={faListAlt}/>
-        <p>Task List</p>
-      </a>
-      <a href="#">
-        <FontAwesomeIcon icon={faPlusSquare}/>
-        <p>Task Creation</p>
-        <FontAwesomeIcon icon={faChevronRight} className={styles.taskCreationChevron} />
-      </a>
-      <a href="#">
-        <FontAwesomeIcon icon={faCogs} />
-        <p>Rule Setting</p>
-      </a>
-    </div>
-    <div className={styles.operationCenterSection}>
-      <h3>Operation Center</h3>
-      <div>
-        <FontAwesomeIcon icon={faQrcode}/>
-        <NavDropdown title="Vehicle Information" id="vehicle-information-dropdown">
-          <NavDropdown.Item eventKey="vehicle-list">Vehicle List</NavDropdown.Item>
-          <NavDropdown.Item eventKey="vehicle-map">Vehicle Map</NavDropdown.Item>
-          <NavDropdown.Item eventKey="vehicle-search">Vehicle Search</NavDropdown.Item>
-        </NavDropdown>
+const SideMenuComponent = () => {
+  const [operationMenuDropdown, setOperationMenuDropdown] = useState(false);
+
+  const handleOperationMenuDropdown = () => {
+    console.log('hello');
+    if (operationMenuDropdown === false) {
+      setOperationMenuDropdown(true);
+    } else {
+      setOperationMenuDropdown(false);
+    }
+    return true;
+  }
+
+  return (
+    <nav className={styles.sideMenuContainer}>
+      <div className={styles.tracBrand}>
+        <FontAwesomeIcon icon={faLaptop}/>
+        <h1>TRACMOBILITY</h1>
       </div>
-    </div>
-  </nav>
-);
+      <div className={styles.kpiSection}>
+        <FontAwesomeIcon icon={faProjectDiagram}/>
+        <h3>KPI Dashboard</h3>
+      </div>
+      <div className={styles.taskManagementSection}>
+        <h3>Task Management</h3>
+        <a href="#">
+          <FontAwesomeIcon icon={faMap}/>
+          <p>Task Map</p>
+        </a>
+        <a href="#">
+          <FontAwesomeIcon icon={faListAlt}/>
+          <p>Task List</p>
+        </a>
+        <a href="#">
+          <FontAwesomeIcon icon={faPlusSquare}/>
+          <p>Task Creation</p>
+          <FontAwesomeIcon icon={faChevronRight} className={styles.taskCreationChevron} />
+        </a>
+        <a href="#">
+          <FontAwesomeIcon icon={faCogs} />
+          <p>Rule Setting</p>
+        </a>
+      </div>
+      <div className={styles.operationCenterSection}>
+        <h3>Operation Center</h3>
+        <div className={styles.operationMenuContainer}>
+          {
+            operationMenuDropdown ? (
+              <>
+                <div className={styles.operationButtonContainer}>
+                  <FontAwesomeIcon icon={faQrcode}/>
+                  <button onClick={handleOperationMenuDropdown} className={styles.operationDropdown}>Vehicle Information</button>
+                  <FontAwesomeIcon icon={faChevronDown} />
+                </div>
+                <div className={styles.operationMenuDropdown}>
+                  <a href="#">Vehicle List</a>
+                  <a href="#">Vehicle Map</a>
+                  <a href="#">Vehicle Search</a>
+                </div>
+              </>
+            ) : (
+              <div className={styles.operationButtonContainer}>
+                <FontAwesomeIcon icon={faQrcode}/>
+                <button onClick={handleOperationMenuDropdown} className={styles.operationDropdown}>Vehicle Information</button>
+                <FontAwesomeIcon icon={faChevronRight} />
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </nav>
+  );
+};
 
 export default SideMenuComponent;
