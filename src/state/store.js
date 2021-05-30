@@ -1,7 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-import { vehicleReducer } from './vehicles/vehicleReducer';
+import { vehiclesReducer } from './vehicles/vehiclesReducer';
+
+const rootReducer = ({
+  vehiclesStore: vehiclesReducer,
+});
 
 export default function initializeStore(initialState = {}) {
   const middleware = [];
@@ -13,7 +17,7 @@ export default function initializeStore(initialState = {}) {
   middleware.push(thunk);
 
   const store = createStore(
-    vehicleReducer,
+    rootReducer,
     initialState,
     applyMiddleware(...middleware),
   );

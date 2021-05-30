@@ -1,6 +1,6 @@
 import {
   fetchVehiclesRequest, fetchVehiclesSuccess, fetchVehiclesError,
-} from '../state/vehicles/vehicleActions';
+} from '../state/vehicles/vehiclesActions';
 
 const fetchVehiclesApiRequest = () => dispatch => {
   dispatch(fetchVehiclesRequest);

@@ -1,7 +1,7 @@
 import { 
   FETCH_VEHICLES_REQUEST, FETCH_VEHICLES_SUCCESS,
   FETCH_VEHICLES_ERROR, FETCH_SINGLE_VEHICLE,
-} from './vehicleTypes';
+} from './vehiclesTypes';
 
 const initialState = {
   loading: false,
@@ -10,7 +10,7 @@ const initialState = {
   error: '',
 };
 
-const vehicleReducer = ( state = initialState, action) => {
+const vehiclesReducer = (state = initialState, action) => {
   switch(action.type) {
     case FETCH_VEHICLES_REQUEST: return {
       ...state,
@@ -42,4 +42,4 @@ const vehicleReducer = ( state = initialState, action) => {
   }
 }
 
-export default vehicleReducer;
+export default vehiclesReducer;

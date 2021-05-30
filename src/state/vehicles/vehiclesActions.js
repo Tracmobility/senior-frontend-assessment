@@ -1,8 +1,8 @@
 import {
   FETCH_VEHICLES_REQUEST, FETCH_VEHICLES_SUCCESS, FETCH_VEHICLES_ERROR, FETCH_SINGLE_VEHICLE 
-} from './vehicleTypes';
+} from './vehiclesTypes';
 
-export const fetchVehicleRequest = () => ({
+export const fetchVehiclesRequest = () => ({
   type: FETCH_VEHICLES_REQUEST,
 });
 
