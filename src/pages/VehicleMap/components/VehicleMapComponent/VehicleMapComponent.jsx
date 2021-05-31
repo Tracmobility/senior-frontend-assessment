@@ -1,18 +1,14 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid'; 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import styles from './VehicleMapComponent.module.scss';
 
 const VehicleMapComponent = ({ mockData }) => {
   const vehicleData = mockData[1];
-  console.log(vehicleData);
+  console.log(mockData);
 
   const icon = L.icon({ iconUrl: '/images/marker-icon.png' });
 
@@ -47,6 +43,18 @@ const VehicleMapComponent = ({ mockData }) => {
       </MapContainer>
     </div>
   )
+};
+
+VehicleMapComponent.propTypes = {
+  mockData: PropTypes.shape({
+    1: PropTypes.arrayOf(
+      PropTypes.shape({
+        lng: PropTypes.number.isRequired,
+        lat: PropTypes.number.isRequired,
+        timeStamp: PropTypes.string.isRequired,
+      }).isRequired,
+    ).isRequired,
+  }).isRequired,
 };
 
 export default VehicleMapComponent;
