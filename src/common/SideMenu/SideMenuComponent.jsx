@@ -61,8 +61,8 @@ const SideMenuComponent = () => {
                   <FontAwesomeIcon icon={faChevronDown} />
                 </div>
                 <div className={styles.operationMenuDropdown}>
-                  <a href="#">Vehicle List</a>
-                  <a href="#">Vehicle Map</a>
+                  <a href="/">Vehicle List</a>
+                  <a href="/vehicle-map">Vehicle Map</a>
                   <a href="#">Vehicle Search</a>
                 </div>
               </>

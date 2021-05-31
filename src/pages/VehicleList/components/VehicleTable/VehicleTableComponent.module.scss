@@ -1,6 +1,5 @@
 .dataTable {
-  display: block;
-  height: 92%;
+  height: 100%;
   width: 95%;
 }
 
@@ -35,4 +34,12 @@
   .opStat {
     background-color: #E74C3C;
   }
+}
+
+.vehicleListLoader {
+  display: flex;
+  height: 92%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }

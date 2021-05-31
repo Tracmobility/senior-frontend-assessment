@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Loader from 'react-loader-spinner';
 import { MDBDataTable } from 'mdbreact';
 import { wordFormatter, batteryFormatter } from '../../../../utils/tableUtils';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import styles from './VehicleTableComponent.module.scss';
 
 const VehicleTableComponent = ({ vehicles }) => {
@@ -83,7 +85,15 @@ const VehicleTableComponent = ({ vehicles }) => {
     );
   } else {
     return (
-      <h3>Please Wait...</h3>
+      <div className={styles.vehicleListLoader}>
+        <Loader
+          type="Grid"
+          color="#03989E"
+          height={100}
+          width={100}
+          timeout={3000}
+        />
+      </div>
     )
   }
 };
