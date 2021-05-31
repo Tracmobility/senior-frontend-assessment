@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -13,10 +12,10 @@ const VehicleListContainer = ({ vehiclesStore, fetchVehiclesApiRequest }) => {
     fetchVehiclesApiRequest();
   }, []);
 
-  const { vehicles, loading } = vehiclesStore;
+  const { vehicles } = vehiclesStore;
 
   return (
-    <main className={styles.vehicleListContainer}>
+    <main>
       <div className={styles.vehicleListContainer}>
         <div className={styles.vehicleListTitleOptionsBar}>
           <h2>Vehicle List</h2>
@@ -32,11 +31,11 @@ const VehicleListContainer = ({ vehiclesStore, fetchVehiclesApiRequest }) => {
 
 VehicleListContainer.propTypes = {
   fetchVehiclesApiRequest: PropTypes.func.isRequired,
-  vehiclesStore: PropTypes.arrayOf({
+  vehiclesStore: PropTypes.shape({
     loading: PropTypes.bool,
     vehicles: PropTypes.shape({
       content: PropTypes.arrayOf(PropTypes.object),
-    }).isRequired,
+    })
   }).isRequired,
 };
 

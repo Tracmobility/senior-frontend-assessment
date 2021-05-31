@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Loader from 'react-loader-spinner';
 import { MDBDataTable } from 'mdbreact';
 import { wordFormatter, batteryFormatter } from '../../../../utils/tableUtils';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import styles from './VehicleTableComponent.module.scss';
 
 const VehicleTableComponent = ({ vehicles }) => {
   if (vehicles.content) {
-    const rowData = vehicles.content.map((content, i) => {
+    const rowData = vehicles.content.map(content => {
       let dataTable = {};
       dataTable = {
-        vehicleID: i,
+        vehicleID: content.uuid,
         qrCode: content.qrCode,
         status: wordFormatter(content.status),
         location: '',
@@ -83,21 +85,30 @@ const VehicleTableComponent = ({ vehicles }) => {
     );
   } else {
     return (
-      <h3>Please Wait...</h3>
+      <div className={styles.vehicleListLoader}>
+        <Loader
+          type="Grid"
+          color="#03989E"
+          height={100}
+          width={100}
+          timeout={3000}
+        />
+      </div>
     )
   }
 };
 
 VehicleTableComponent.propTypes = {
   vehicles: PropTypes.shape({
-    content: PropTypes.shape(
+    content: PropTypes.arrayOf(
       PropTypes.shape({
-        qrCode: PropTypes.string.isRequired,
-        status: PropTypes.string.isRequired,
-        batteryLevel: PropTypes.number.isRequired,
-      }).isRequired,
-    ).isRequired,
-  }).isRequired,
+        uuid: PropTypes.string,
+        qrCode: PropTypes.string,
+        status: PropTypes.string,
+        batteryLevel: PropTypes.number,
+      }),
+    ),
+  })
 };
 
 export default VehicleTableComponent;

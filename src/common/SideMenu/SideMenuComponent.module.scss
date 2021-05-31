@@ -1,12 +1,11 @@
 .sideMenuContainer {
   display: flex;
   flex-flow: column nowrap;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: #03989E;
   color: #fefefe;
   padding: 20px 14px;
-  overflow-y: scroll;
 
   div {
     width: 100%;
@@ -32,8 +31,9 @@
     }
 
     h1 {
-      font-size: 22px;
+      font-size: 28px;
       padding-left: 10px;
+      margin-bottom: 0;
     }
   }
 
