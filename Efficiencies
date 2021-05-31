@@ -1,0 +1,4 @@
+Utils
+ - wordFormatter case for MAINTENANCE_PENDING. Use charAt instead of split ?
+
+-remove getUuid package

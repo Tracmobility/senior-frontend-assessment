@@ -3,18 +3,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MDBDataTable } from 'mdbreact';
+import getUuid from 'uuid-by-string';
+import { wordFormatter, batteryFormatter } from '../../../../utils/tableUtils';
 import styles from './VehicleTableComponent.module.scss';
 
 const VehicleTableComponent = ({ vehicles }) => {
   if (vehicles.content) {
-    const rowData = vehicles.content.map(content => {
+    const rowData = vehicles.content.map((content, i) => {
       let dataTable = {};
       dataTable = {
-        vehicleID: '',
-        qrCode: content.qrCode,
-        status: content.status,
+        vehicleID: i,
+        qrCode: getUuid(content.qrCode),
+        status: wordFormatter(content.status),
         location: '',
-        batteryLevel: content.batteryLevel,
+        batteryLevel: batteryFormatter(content.batteryLevel),
         operation: ''
       }
       return dataTable
@@ -28,7 +30,7 @@ const VehicleTableComponent = ({ vehicles }) => {
           label: 'VehicleID',
           field: 'vehicleID',
           sort: 'asc',
-          width: 150,
+          width: 300,
         },
         {
           label: 'QR Code',
@@ -68,6 +70,7 @@ const VehicleTableComponent = ({ vehicles }) => {
       <MDBDataTable
         striped
         bordered
+        responsive
         small
         data={data}
         className={styles.dataTable}
