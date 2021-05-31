@@ -1,9 +1,6 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MDBDataTable } from 'mdbreact';
-import getUuid from 'uuid-by-string';
 import { wordFormatter, batteryFormatter } from '../../../../utils/tableUtils';
 import styles from './VehicleTableComponent.module.scss';
 
@@ -13,11 +10,18 @@ const VehicleTableComponent = ({ vehicles }) => {
       let dataTable = {};
       dataTable = {
         vehicleID: i,
-        qrCode: getUuid(content.qrCode),
+        qrCode: content.qrCode,
         status: wordFormatter(content.status),
         location: '',
         batteryLevel: batteryFormatter(content.batteryLevel),
-        operation: ''
+        operation: (
+          <div className={styles.operationButtons}>
+            <button className={styles.opEdit} type="button">Edit</button>
+            <button className={styles.opOr} type="button">Order</button>
+            <button className={styles.opCity} type="button">Change City/Region</button>
+            <button className={styles.opStat} type="button">Change Status</button>
+          </div>
+        ),
       }
       return dataTable
     });
@@ -30,13 +34,13 @@ const VehicleTableComponent = ({ vehicles }) => {
           label: 'VehicleID',
           field: 'vehicleID',
           sort: 'asc',
-          width: 300,
+          width: 100,
         },
         {
           label: 'QR Code',
           field: 'qrCode',
           sort: 'asc',
-          width: 150,
+          width: 300,
         },
         {
           label: 'Status',
@@ -54,13 +58,13 @@ const VehicleTableComponent = ({ vehicles }) => {
           label: 'Battery Level',
           field: 'batteryLevel',
           sort: 'asc',
-          width: 300,
+          width: 120,
         },
         {
           label: 'Operation',
           field: 'operation',
           sort: 'asc',
-          width: 500,
+          width: 800,
         },
       ],
       rows: rowData,
@@ -70,10 +74,11 @@ const VehicleTableComponent = ({ vehicles }) => {
       <MDBDataTable
         striped
         bordered
-        responsive
         small
+        responsive
         data={data}
         className={styles.dataTable}
+        maxHeight="200px"
       />
     );
   } else {
@@ -84,13 +89,15 @@ const VehicleTableComponent = ({ vehicles }) => {
 };
 
 VehicleTableComponent.propTypes = {
-  vehicles: PropTypes.arrayOf(
-    PropTypes.shape({
-      qrCode: PropTypes.string.isRequired,
-      status: PropTypes.string.isRequired,
-      batteryLevel: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  vehicles: PropTypes.shape({
+    content: PropTypes.shape(
+      PropTypes.shape({
+        qrCode: PropTypes.string.isRequired,
+        status: PropTypes.string.isRequired,
+        batteryLevel: PropTypes.number.isRequired,
+      }).isRequired,
+    ).isRequired,
+  }).isRequired,
 };
 
 export default VehicleTableComponent;

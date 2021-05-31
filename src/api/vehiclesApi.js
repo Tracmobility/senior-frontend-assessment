@@ -4,7 +4,7 @@ import {
 
 const fetchVehiclesApiRequest = () => dispatch => {
   dispatch(fetchVehiclesRequest);
-  fetch(`https://console-api.tracmobility.com/test/vehicles?page=0&size=100`, {
+  fetch(`https://console-api.tracmobility.com/test/vehicles?page=0&size=10`, {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
