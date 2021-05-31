@@ -1,0 +1,38 @@
+.dataTable {
+  display: block;
+  height: 92%;
+  width: 95%;
+}
+
+.operationButtons {
+  button {
+    border: none;
+    outline: none;
+    padding: 6px 4px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 14px;
+    color: #fefefe;
+  }
+
+  .opEdit {
+    background-color: #03989E;
+  }
+
+  .opOr {
+    background-color: #82E0AA;
+    margin-left: 4px;
+    margin-right: 2px;
+  }
+
+  .opCity {
+    background-color: #85929E;
+    margin-left: 2px;
+    margin-right: 4px;
+  }
+
+  .opStat {
+    background-color: #E74C3C;
+  }
+}
