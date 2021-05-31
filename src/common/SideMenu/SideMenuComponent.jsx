@@ -7,14 +7,14 @@ import {
 import styles from './SideMenuComponent.module.scss';
 
 const SideMenuComponent = () => {
-  const [operationMenuDropdown, setOperationMenuDropdown] = useState(false);
+  const [operationMenuDropdown, setOperationMenuDropdown] = useState(true);
 
   const handleOperationMenuDropdown = () => {
     console.log('hello');
-    if (operationMenuDropdown === false) {
-      setOperationMenuDropdown(true);
-    } else {
+    if (operationMenuDropdown === true) {
       setOperationMenuDropdown(false);
+    } else {
+      setOperationMenuDropdown(true);
     }
     return true;
   }
