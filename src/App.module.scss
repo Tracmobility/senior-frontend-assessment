@@ -1,32 +1,30 @@
 .appContainer {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
   align-items: flex-start;
-  justify-content: center;
   width: 100%;
   height: 100vh;
-  flex-grow: 1;
   background-color: #fefefe;
-  z-index: 1;
+  overflow: hidden;
 
   .sideMenuContainer,
   .topBarAndRoutesContainer {
     display: flex;
     justify-content: center;
-    height: 100vh;
   };
 
   .sideMenuContainer {
     width: 18%;
+    height: 100%;
+    overflow-y: auto;
   }
 
   .topBarAndRoutesContainer {
-    display: flex;
+    height: 100vh;
     width: 82%;
-    justify-content: flex-start;
     flex-flow: column nowrap;
+    align-items: center;
     position: relative;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }

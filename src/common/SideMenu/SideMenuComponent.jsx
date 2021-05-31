@@ -10,7 +10,6 @@ const SideMenuComponent = () => {
   const [operationMenuDropdown, setOperationMenuDropdown] = useState(true);
 
   const handleOperationMenuDropdown = () => {
-    console.log('hello');
     if (operationMenuDropdown === true) {
       setOperationMenuDropdown(false);
     } else {

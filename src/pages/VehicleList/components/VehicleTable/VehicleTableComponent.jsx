@@ -8,10 +8,10 @@ import styles from './VehicleTableComponent.module.scss';
 
 const VehicleTableComponent = ({ vehicles }) => {
   if (vehicles.content) {
-    const rowData = vehicles.content.map((content, i) => {
+    const rowData = vehicles.content.map(content => {
       let dataTable = {};
       dataTable = {
-        vehicleID: i,
+        vehicleID: content.uuid,
         qrCode: content.qrCode,
         status: wordFormatter(content.status),
         location: '',
@@ -100,14 +100,15 @@ const VehicleTableComponent = ({ vehicles }) => {
 
 VehicleTableComponent.propTypes = {
   vehicles: PropTypes.shape({
-    content: PropTypes.shape(
+    content: PropTypes.arrayOf(
       PropTypes.shape({
-        qrCode: PropTypes.string.isRequired,
-        status: PropTypes.string.isRequired,
-        batteryLevel: PropTypes.number.isRequired,
-      }).isRequired,
-    ).isRequired,
-  }).isRequired,
+        uuid: PropTypes.string,
+        qrCode: PropTypes.string,
+        status: PropTypes.string,
+        batteryLevel: PropTypes.number,
+      }),
+    ),
+  })
 };
 
 export default VehicleTableComponent;

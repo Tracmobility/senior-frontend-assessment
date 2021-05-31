@@ -31,11 +31,11 @@ const VehicleListContainer = ({ vehiclesStore, fetchVehiclesApiRequest }) => {
 
 VehicleListContainer.propTypes = {
   fetchVehiclesApiRequest: PropTypes.func.isRequired,
-  vehiclesStore: PropTypes.arrayOf({
+  vehiclesStore: PropTypes.shape({
     loading: PropTypes.bool,
     vehicles: PropTypes.shape({
       content: PropTypes.arrayOf(PropTypes.object),
-    }).isRequired,
+    })
   }).isRequired,
 };
 
