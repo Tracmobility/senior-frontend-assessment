@@ -28,8 +28,6 @@ const VehicleTableComponent = ({ vehicles }) => {
       return dataTable
     });
 
-    console.log(vehicles);
-
     const data = {
       columns: [
         {

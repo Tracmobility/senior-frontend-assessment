@@ -8,8 +8,6 @@ import styles from './VehicleMapComponent.module.scss';
 
 const VehicleMapComponent = ({ mockData }) => {
   const vehicleData = mockData[1];
-  console.log(mockData);
-
   const icon = L.icon({ iconUrl: '/images/marker-icon.png' });
 
   return (
